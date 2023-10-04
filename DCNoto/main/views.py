@@ -21,6 +21,7 @@ class DocumentViewset(viewsets.ModelViewSet):
             doc_fields = doc_type.get_fields()
             
             data = json.loads(post_payloads['data'] if post_payloads['data'] else '{}')
+            data_keys = []
             if data: data_keys = data.keys()
             send_fields = match_fields(get_fields=data_keys, has_fields=doc_fields)
 
